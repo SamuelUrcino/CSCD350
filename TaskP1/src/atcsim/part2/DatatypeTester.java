@@ -112,7 +112,18 @@ class DatatypeTester {
 	
 	@Test
 	public void testAttitudeYaw() {
+		AttitudeYaw testYaw  = new AttitudeYaw(10);
 		
+		//-5 + testYaw
+		AttitudeYaw yaw = new AttitudeYaw(-5);
+		AttitudeYaw yawResult = yaw.add_(testYaw);
+		assertEquals(5,yawResult.getValue_());
+		 
+		//175 + testYaw
+		
+		//5 - testYaw
+		
+		//-175 - testYaw
 	}
 	
 	//done by Savannah
