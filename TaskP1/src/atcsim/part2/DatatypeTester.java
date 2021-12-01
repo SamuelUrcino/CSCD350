@@ -83,19 +83,66 @@ class DatatypeTester {
 		
 	}
 	
+	//done by Savannah
 	@Test
 	public void testAttitudePitch() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		 // Create pitch (p = 10)
+        AttitudePitch p = new AttitudePitch(10); 
+
+        // Verify (0 + p) is correct
+        AttitudePitch zero = new AttitudePitch(0);
+        AttitudePitch sum1 = p.add_(zero); 
+        double sum1Result = sum1.getValue_();
+        assertEquals(10, sum1Result,"from result");
+
+        // Verify (90 + p) is correct
+        AttitudePitch ninety = new AttitudePitch(90);
+        AttitudePitch sum2 = p.add_(ninety); 
+        double sum2Result = sum2.getValue_();
+        assertEquals(100, sum2Result,"from result");
+
+
+        // Verify (175 + p) is correct
+        AttitudePitch oneSeventyFive = new AttitudePitch(175);
+        AttitudePitch sum3 = p.add_(oneSeventyFive); 
+        double sum3Result = sum3.getValue_();
+        assertEquals(-175, sum3Result,"from result");
 	}
 	
 	@Test
 	public void testAttitudeYaw() {
-		fail("Not yet implemented");
+		
 	}
 	
+	//done by Savannah
 	@Test
 	public void testCourse() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
+		 // Create course (c = 10)
+        Course c = new Course(10);
+
+        // Verify (0 + c) is correct
+        Course zero = new Course(0);
+        Course sum1 = c.add_(zero); 
+        double sum1Result = sum1.getValue_();
+        assertEquals(10, sum1Result,"from result");
+
+        // Verify (355 + c) is correct
+        Course threeFiftyFive = new Course(355);
+        Course sum2 = c.add_(threeFiftyFive); 
+        double sum2Result = sum2.getValue_();
+        assertEquals(5, sum2Result,"from result");
+
+        // Verify (0 - c) is correct
+        // Course difference1 = zero.subtract(c); 
+        // double difference1Result = difference1.getValue();
+        // assertEquals(-10, difference1Result,"from result");
+
+        // Verify (355 - c) is correct
+        // Course difference2 = threeFiftyFive.subtract(c); 
+        // double difference2Result = difference2.getValue();
+        // assertEquals(-15, difference2Result,"from result");
 	}
 	
 	@Test
