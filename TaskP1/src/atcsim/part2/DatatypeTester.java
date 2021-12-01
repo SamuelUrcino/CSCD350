@@ -100,7 +100,18 @@ class DatatypeTester {
 	
 	@Test
 	public void testCoordinateWorld() {
-		fail("Not yet implemented");
+		CoordinateWorld testP1 = CoordinateWorld.KSFF;
+		CoordinateWorld testP2 = new CoordinateWorld(new Latitude(1,2,3),new Longitude(3,2,1));
+		
+		//assertEquals(Expected Result(We set this),Actual Result(The result that is calculated))
+		
+		//test P1 is P1
+		int comparison = testP1.compareTo(testP1);
+		assertEquals(0, comparison,"from result");
+		
+		//test P1 + P2
+		CoordinateWorld sum = testP1.add_(testP1);
+		assertEquals(0, sum.getValue_(),"from result");
 	}
 	
 	@Test
