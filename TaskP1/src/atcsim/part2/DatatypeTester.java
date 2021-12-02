@@ -117,13 +117,23 @@ class DatatypeTester {
 		//-5 + testYaw
 		AttitudeYaw yaw = new AttitudeYaw(-5);
 		AttitudeYaw yawResult = yaw.add_(testYaw);
-		assertEquals(5,yawResult.getValue_());
+		assertEquals(5.0,yawResult.getValue_(),.01);
 		 
 		//175 + testYaw
+		AttitudeYaw yaw2 = new AttitudeYaw(175);
+		AttitudeYaw yaw2Result = yaw2.add_(testYaw);
+		assertEquals(-175.0,yaw2Result.getValue_(),.01);
 		
-		//5 - testYaw
+		//5 - testYaw or 5 - 10
+		AttitudeYaw yaw3 = new AttitudeYaw(5);
+		AttitudeYaw yaw3Result = yaw3.subtract_(testYaw);
+		assertEquals(-5,yaw3Result.getValue_(),.01);
 		
-		//-175 - testYaw
+		//-175 - testYaw or -175 - 10
+		AttitudeYaw yaw4 = new AttitudeYaw(-175);
+		AttitudeYaw yaw4Result = yaw4.subtract_(testYaw);
+		assertEquals(175,yaw4Result.getValue_(),.01);
+		
 	}
 	
 	//done by Savannah
@@ -137,7 +147,7 @@ class DatatypeTester {
         Course zero = new Course(0);
         Course sum1 = c.add_(zero); 
         double sum1Result = sum1.getValue_();
-        assertEquals(10, sum1Result,"from result");
+        assertEquals(10, sum1Result,.01);
 
         // Verify (355 + c) is correct
         Course threeFiftyFive = new Course(355);
