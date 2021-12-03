@@ -165,6 +165,7 @@ class DatatypeTester {
         // double difference2Result = difference2.getValue();
         // assertEquals(-15, difference2Result,"from result");
 	}
+
 	
 	@Test
 	public void testCoordinateWorld() {
@@ -190,6 +191,29 @@ class DatatypeTester {
 	public void testCoordinateWorld3D() {
 		
 		CoordinateWorld3D p = CoordinateWorld3D.KSFF;
+		CoordinatePolarNavigational3D pbearing = p.calculateBearing3D(p);
+		assertEquals(90,pbearing.getAngle().getValue_(),"angle of bearing to itself");
+		assertEquals(0,pbearing.getRadiusNauticalMiles().getValue_(),"distance of p to itself");
+		
+		CoordinateWorld eastpoint = p.getCoordinateWorld().KSFF_E; //p.calculateBearing3D(new CoordinateCoordinateWorld.KSFF_E);
+		CoordinatePolarNavigational3D eastbearing = p.calculateBearing3D(new CoordinateWorld3D(eastpoint,p.getAltitude()));
+		assertEquals(90,eastbearing.getAngle().getValue_(),"angle of bearing to east");
+		assertEquals(794.038,eastbearing.getRadiusNauticalMiles().getValue_(),0.1,"distance of p to 10 minutes east");
+		
+		CoordinateWorld southpoint = p.getCoordinateWorld().KSFF_S; //p.calculateBearing3D(new CoordinateCoordinateWorld.KSFF_E);
+		CoordinatePolarNavigational3D southbearing = p.calculateBearing3D(new CoordinateWorld3D(southpoint,p.getAltitude()));
+		assertEquals(180,southbearing.getAngle().getValue_(),"angle of bearing to south");
+		assertEquals(794.038,southbearing.getRadiusNauticalMiles().getValue_(),0.1,"distance of p to 10 minutes south");
+		
+		CoordinateWorld westpoint = p.getCoordinateWorld().KSFF_W; //p.calculateBearing3D(new CoordinateCoordinateWorld.KSFF_E);
+		CoordinatePolarNavigational3D westbearing = p.calculateBearing3D(new CoordinateWorld3D(westpoint,p.getAltitude()));
+		assertEquals(270,westbearing.getAngle().getValue_(),"angle of bearing to west");
+		assertEquals(794.038,westbearing.getRadiusNauticalMiles().getValue_(),0.1,"distance of p to 10 minutes west");
+		
+		CoordinateWorld northpoint = p.getCoordinateWorld().KSFF_N; //p.calculateBearing3D(new CoordinateCoordinateWorld.KSFF_E);
+		CoordinatePolarNavigational3D northbearing = p.calculateBearing3D(new CoordinateWorld3D(northpoint,p.getAltitude()));
+		assertEquals(0,northbearing.getAngle().getValue_(),"angle of bearing to north");
+		assertEquals(794.038,northbearing.getRadiusNauticalMiles().getValue_(),0.1,"distance of p to 10 minutes north");
 		
 	}
 	
