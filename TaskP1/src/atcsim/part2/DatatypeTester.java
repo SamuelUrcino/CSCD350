@@ -174,17 +174,23 @@ class DatatypeTester {
 		//assertEquals(Expected Result(We set this),Actual Result(The result that is calculated))
 		
 		//test P1 is P1
-		int comparison = testP1.compareTo(testP1);
-		assertEquals(0, comparison,"from result");
+		//int comparison = testP1.compareTo(testP1);
+		assertEquals(0, testP1.getLatitude().compareTo(CoordinateWorld.KSFF.getLatitude()),"comparing Latitude");
+		assertEquals(0, testP1.getLongitude().compareTo(CoordinateWorld.KSFF.getLongitude()),"comparing Longitude");
 		
 		//test P1 + P2
-		CoordinateWorld sum = testP1.add_(testP1);
-		assertEquals(0, sum.getValue_(),"from result");
+		CoordinateWorld sum = testP1.add_(testP2);
+		CoordinateWorld shouldbe = new CoordinateWorld(CoordinateWorld.KSFF.getLatitude().add_(new Latitude(1,2,3)),CoordinateWorld.KSFF.getLongitude().add_(new Longitude(3,2,1)));
+		//assertEquals(0, sum.compareTo(shouldbe),"from result");
+		assertEquals(0, sum.getLatitude().compareTo(shouldbe.getLatitude()),"comparing Latitude");
+		assertEquals(0, sum.getLongitude().compareTo(shouldbe.getLongitude()),"comparing Longitude");
 	}
 	
 	@Test
 	public void testCoordinateWorld3D() {
-		fail("Not yet implemented");
+		
+		CoordinateWorld3D p = CoordinateWorld3D.KSFF;
+		
 	}
 	
 	
