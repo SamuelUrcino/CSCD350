@@ -21,22 +21,22 @@ class DatatypeTester {
 		//alt + alt2
 		Altitude add = testAlt.add_(testAlt2);
 		double addResult = add.getValue_();
-		assertEquals(1200, addResult,"from result");
+		assertEquals(1200, addResult,.01);
 		
 		//alt2 + alt
 		Altitude add2 = testAlt2.add_(testAlt);
 		double addResult2 = add2.getValue_();
-		assertEquals(1200, addResult2,"from result");
+		assertEquals(1200, addResult2,.01);
 		
 		//alt - alt2
 		Altitude sub = testAlt.subtract_(testAlt2);
 		double subResult = sub.getValue_();
-		assertEquals(800, subResult);
+		assertEquals(800, subResult,.01);
 		
 		//alt2 - alt
 		Altitude sub2 = testAlt2.subtract_(testAlt);
 		double subResult2 = sub2.getValue_();
-		assertEquals(-800, subResult2);
+		assertEquals(-800, subResult2,.01);
 		
 		//alt = alt or 1000 == 1000
 		int res = testAlt.compareTo(testAlt);
@@ -94,20 +94,20 @@ class DatatypeTester {
         AttitudePitch zero = new AttitudePitch(0);
         AttitudePitch sum1 = p.add_(zero); 
         double sum1Result = sum1.getValue_();
-        assertEquals(10, sum1Result,"from result");
+        assertEquals(10, sum1Result,.01);
 
         // Verify (90 + p) is correct
         AttitudePitch ninety = new AttitudePitch(90);
         AttitudePitch sum2 = p.add_(ninety); 
         double sum2Result = sum2.getValue_();
-        assertEquals(100, sum2Result,"from result");
+        assertEquals(100, sum2Result,.01);
 
 
         // Verify (175 + p) is correct
         AttitudePitch oneSeventyFive = new AttitudePitch(175);
         AttitudePitch sum3 = p.add_(oneSeventyFive); 
         double sum3Result = sum3.getValue_();
-        assertEquals(-175, sum3Result,"from result");
+        assertEquals(-175, sum3Result,.01);
 	}
 	
 	@Test
@@ -139,8 +139,9 @@ class DatatypeTester {
 	//done by Savannah
 	@Test
 	public void testCourse() {
-		//fail("Not yet implemented");
-		 // Create course (c = 10)
+		// fail("Not yet implemented");
+
+        // Create course (c = 10)
         Course c = new Course(10);
 
         // Verify (0 + c) is correct
@@ -153,17 +154,17 @@ class DatatypeTester {
         Course threeFiftyFive = new Course(355);
         Course sum2 = c.add_(threeFiftyFive); 
         double sum2Result = sum2.getValue_();
-        assertEquals(5, sum2Result,"from result");
+        assertEquals(5, sum2Result,.01);
 
         // Verify (0 - c) is correct
-        // Course difference1 = zero.subtract(c); 
-        // double difference1Result = difference1.getValue();
-        // assertEquals(-10, difference1Result,"from result");
+        Course difference1 = zero.subtract_(c); 
+        double difference1Result = difference1.getValue_();
+        assertEquals(350, difference1Result,.01);
 
         // Verify (355 - c) is correct
-        // Course difference2 = threeFiftyFive.subtract(c); 
-        // double difference2Result = difference2.getValue();
-        // assertEquals(-15, difference2Result,"from result");
+        Course difference2 = threeFiftyFive.subtract_(c); 
+        double difference2Result = difference2.getValue_();
+        assertEquals(345, difference2Result,.01);
 	}
 
 	
