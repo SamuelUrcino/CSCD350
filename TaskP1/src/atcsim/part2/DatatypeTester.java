@@ -66,20 +66,20 @@ class DatatypeTester {
 		
 		//testAngleNav1 reciprocal
 		AngleNavigational recipResult1 = testAngleNav1.reciprocate();
-		assertEquals(270.0, recipResult1.getValue_(),"from result");
+		assertEquals(270.0, recipResult1.getValue_(),.01);
 		
 		//testAngleNav2 reciprocal
 		AngleNavigational recipResult2 = testAngleNav2.reciprocate();
-		assertEquals(0.0, recipResult2.getValue_(),"from result");
+		assertEquals(0.0, recipResult2.getValue_(),.01);
 		
 		
 		//testAngleNav1 interpolate
 		AngleNavigational interpResult1 = testAngleNav1.interpolate(testAngleNav2,Scaler.HALF);
-		assertEquals(135, interpResult1.getValue_(),"from result");
+		assertEquals(135, interpResult1.getValue_(),.01);
 		
 		//testAngleNav2 interpolate
 		AngleNavigational interpResult2 = testAngleNav2.interpolate(testAngleNav1,Scaler.HALF);
-		assertEquals(315, interpResult2.getValue_(),"from result");
+		assertEquals(315, interpResult2.getValue_(),.01);
 		
 	}
 	
@@ -165,6 +165,9 @@ class DatatypeTester {
         Course difference2 = threeFiftyFive.subtract_(c); 
         double difference2Result = difference2.getValue_();
         assertEquals(345, difference2Result,.01);
+        
+        //Yaw is the direction that we are pointing at
+        //Course is the actual direction that we are moving
 	}
 
 	
